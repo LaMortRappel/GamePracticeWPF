@@ -20,11 +20,60 @@ namespace GamePracticeWPF
     /// </summary>
     public partial class Level1 : Window
     {
+        int round = 0;
+        int colorNum = 0;
+
         public Level1()
         {
             InitializeComponent();
-            Loaded += new RoutedEventHandler(Level1_Loaded);
+            /*
+            var roundTimer = new DispatcherTimer();
+            roundTimer.Interval = TimeSpan.FromMilliseconds(2000);
+            roundTimer.Tick += new EventHandler(roundTimer_Tick);
+
+            var comboTimer = new DispatcherTimer();
+            comboTimer.Interval = TimeSpan.FromMilliseconds(500);
+            comboTimer.Tick += new EventHandler(comboTimer_Tick);
+            if (colorNum <= round)
+                Loaded += new RoutedEventHandler(Level1_Loaded);
+            */
             
+            
+        }
+
+        int TimeMS;
+        private void comboTimer()
+
+        {
+            TimeMS = 500;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(1);
+
+            if (TimeMS != 0) { timer.Tick += new EventHandler(comboTimer_Tick); timer.Start(); }
+            else if (TimeMS <= 0) timer.Stop();
+        }
+
+        private void comboTimer_Tick(object sender, EventArgs e)
+        {
+            lblTimer.Content = TimeMS.ToString();
+            TimeMS--;
+        }
+
+        private void roundTimer()
+
+        {
+            TimeMS = 2000;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(1);
+
+            if (TimeMS != 0) { timer.Tick += new EventHandler(roundTimer_Tick); timer.Start(); }
+            else if (TimeMS <= 0) timer.Stop();
+        }
+
+        private void roundTimer_Tick(object sender, EventArgs e)
+        {
+            lblTimer.Content = TimeMS.ToString();
+            TimeMS--;
         }
 
         async void Level1_Loaded(object sender, RoutedEventArgs e)
@@ -43,7 +92,7 @@ namespace GamePracticeWPF
             var rnd = new Random();
             for (int i = 0; i <= 8; i++)
                 combo[i] = colors[rnd.Next(0, 8)].Item2;
-
+            
             for (int i = 0; i <= 8; i++)
             {
                 for (int j = 0; j <= i; j++)
@@ -56,6 +105,7 @@ namespace GamePracticeWPF
                 grid.Background = new SolidColorBrush(Colors.White);
                 await Task.Delay(2000);
             }
+            
         }
 
         void TimerTick (object sender, EventArgs e)

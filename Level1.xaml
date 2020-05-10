@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GamePracticeWPF"
         mc:Ignorable="d"
-        Title="Smart Heist - Level 1" Height="720" Width="640" ResizeMode="NoResize" Loaded="Level1_Loaded">
+        Title="Smart Heist - Level 1" Height="720" Width="640" ResizeMode="NoResize"  Loaded="Level1_Loaded">
     <Grid Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -21,7 +21,8 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Name="lblTimer" FontSize="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Name="lblTimer"
+               FontSize="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button Grid.Column="1" Grid.Row="1" Margin="8" FontSize="64" Name="btnR" Click="btnR_Clk">R</Button>
         <Button Grid.Column="1" Grid.Row="2" Margin="8" FontSize="64" Name="btnC" Click="btnC_Clk">C</Button>
         <Button Grid.Column="1" Grid.Row="3" Margin="8" FontSize="64" Name="btnK" Click="btnK_Clk">K</Button>

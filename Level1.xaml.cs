@@ -20,60 +20,30 @@ namespace GamePracticeWPF
     /// </summary>
     public partial class Level1 : Window
     {
-        int round = 0;
-        int colorNum = 0;
+        private int count;
+        private DispatcherTimer Countdown;
+        List<char> inputCombo = new List<char>();
 
         public Level1()
         {
             InitializeComponent();
-            /*
-            var roundTimer = new DispatcherTimer();
-            roundTimer.Interval = TimeSpan.FromMilliseconds(2000);
-            roundTimer.Tick += new EventHandler(roundTimer_Tick);
-
-            var comboTimer = new DispatcherTimer();
-            comboTimer.Interval = TimeSpan.FromMilliseconds(500);
-            comboTimer.Tick += new EventHandler(comboTimer_Tick);
-            if (colorNum <= round)
-                Loaded += new RoutedEventHandler(Level1_Loaded);
-            */
-            
-            
+            Countdown = new DispatcherTimer();
+            Countdown.Interval = TimeSpan.FromMilliseconds(100);
+            Countdown.Tick += Countdown_Tick;
         }
 
-        int TimeMS;
-        private void comboTimer()
-
+        private void Countdown_Tick(object sender, EventArgs e)
         {
-            TimeMS = 500;
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(1);
-
-            if (TimeMS != 0) { timer.Tick += new EventHandler(comboTimer_Tick); timer.Start(); }
-            else if (TimeMS <= 0) timer.Stop();
-        }
-
-        private void comboTimer_Tick(object sender, EventArgs e)
-        {
-            lblTimer.Content = TimeMS.ToString();
-            TimeMS--;
-        }
-
-        private void roundTimer()
-
-        {
-            TimeMS = 2000;
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(1);
-
-            if (TimeMS != 0) { timer.Tick += new EventHandler(roundTimer_Tick); timer.Start(); }
-            else if (TimeMS <= 0) timer.Stop();
-        }
-
-        private void roundTimer_Tick(object sender, EventArgs e)
-        {
-            lblTimer.Content = TimeMS.ToString();
-            TimeMS--;
+            if (count > 0)
+            {
+                count -= 100;
+                lblTimer.Content = string.Format("{0}.{1}", count / 1000, count % 1000 / 100);
+            }
+            else
+            {
+                Countdown.Stop();
+                lblTimer.Content = "";
+            }
         }
 
         async void Level1_Loaded(object sender, RoutedEventArgs e)
@@ -88,74 +58,106 @@ namespace GamePracticeWPF
                 Tuple.Create('K', Colors.Black),
                 Tuple.Create('P', Colors.Pink),
                 Tuple.Create('O', Colors.Orange)};
-            var combo = new Color[9];
+            var combo = new Tuple<char, Color>[9];
             var rnd = new Random();
             for (int i = 0; i <= 8; i++)
-                combo[i] = colors[rnd.Next(0, 8)].Item2;
+                combo[i] = colors[rnd.Next(0, 8)];
             
             for (int i = 0; i <= 8; i++)
             {
+                EnableButtons(false);
                 for (int j = 0; j <= i; j++)
                 {
                     grid.Background = new SolidColorBrush(Colors.White);
                     await Task.Delay(500);
-                    grid.Background = new SolidColorBrush(combo[j]);
+                    grid.Background = new SolidColorBrush(combo[j].Item2);
                     await Task.Delay(500);
                 }
                 grid.Background = new SolidColorBrush(Colors.White);
-                await Task.Delay(2000);
+                inputCombo.Clear();
+                int answerTime = 1500 + 500 * i;
+                count = answerTime;
+                Countdown.Start();
+                EnableButtons(true);
+                await Task.Delay(answerTime + 500);
+                int inputLength = inputCombo.Count;
+                if (inputLength != i + 1)
+                {
+                    i--;
+                    continue;
+                }
+                for (int z = 0; z <= inputCombo.Count - 1; z++)
+                {
+                    if (inputCombo[z] != combo[z].Item1)
+                    {
+                        i--;
+                        break;
+                    }
+                }
             }
-            
+            await Task.Delay(1000);
+            lblTimer.Content = "Congratulations!";
+            lblTimer.FontSize = 48;
+            lblTimer.Foreground = Brushes.White;
+            grid.Background = Brushes.Lime;
         }
 
-        void TimerTick (object sender, EventArgs e)
+        public void EnableButtons(bool isEnabled)
         {
-            lblTimer.Content = DateTime.Now.ToString("ss:ff");
+            btnR.IsEnabled = isEnabled;
+            btnG.IsEnabled = isEnabled;
+            btnB.IsEnabled = isEnabled;
+            btnC.IsEnabled = isEnabled;
+            btnM.IsEnabled = isEnabled;
+            btnY.IsEnabled = isEnabled;
+            btnK.IsEnabled = isEnabled;
+            btnP.IsEnabled = isEnabled;
+            btnO.IsEnabled = isEnabled;
         }
 
         private void btnR_Clk (object sender, RoutedEventArgs e)
         {
-
+            inputCombo.Add('R');
         }
 
         private void btnG_Clk(object sender, RoutedEventArgs e)
         {
-
+            inputCombo.Add('G');
         }
 
         private void btnB_Clk(object sender, RoutedEventArgs e)
         {
-
+            inputCombo.Add('B');
         }
 
         private void btnC_Clk(object sender, RoutedEventArgs e)
         {
-
+            inputCombo.Add('C');
         }
 
         private void btnM_Clk(object sender, RoutedEventArgs e)
         {
-
+            inputCombo.Add('M');
         }
 
         private void btnY_Clk(object sender, RoutedEventArgs e)
         {
-
+            inputCombo.Add('Y');
         }
 
         private void btnK_Clk(object sender, RoutedEventArgs e)
         {
-
+            inputCombo.Add('K');
         }
 
         private void btnP_Clk(object sender, RoutedEventArgs e)
         {
-
+            inputCombo.Add('P');
         }
 
         private void btnO_Clk(object sender, RoutedEventArgs e)
         {
-
+            inputCombo.Add('O');
         }
     }
 }

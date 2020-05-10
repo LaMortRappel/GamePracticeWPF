@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GamePracticeWPF"
         mc:Ignorable="d"
-        Title="Smart Heist - Level 1" Height="720" Width="640" ResizeMode="NoResize">
-    <Grid>
-        
+        Title="Smart Heist - Level 1" Height="720" Width="640" ResizeMode="NoResize" Loaded="Level1_Loaded">
+    <Grid Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Name="lblTimer" FontSize="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Column="1" Grid.Row="1" Margin="8" FontSize="64" Name="btnR" Click="btnR_Clk">R</Button>
+        <Button Grid.Column="1" Grid.Row="2" Margin="8" FontSize="64" Name="btnC" Click="btnC_Clk">C</Button>
+        <Button Grid.Column="1" Grid.Row="3" Margin="8" FontSize="64" Name="btnK" Click="btnK_Clk">K</Button>
+        <Button Grid.Column="2" Grid.Row="1" Margin="8" FontSize="64" Name="btnG" Click="btnG_Clk">G</Button>
+        <Button Grid.Column="2" Grid.Row="2" Margin="8" FontSize="64" Name="btnM" Click="btnM_Clk">M</Button>
+        <Button Grid.Column="2" Grid.Row="3" Margin="8" FontSize="64" Name="btnP" Click="btnP_Clk">P</Button>
+        <Button Grid.Column="3" Grid.Row="1" Margin="8" FontSize="64" Name="btnB" Click="btnB_Clk">B</Button>
+        <Button Grid.Column="3" Grid.Row="2" Margin="8" FontSize="64" Name="btnY" Click="btnY_Clk">Y</Button>
+        <Button Grid.Column="3" Grid.Row="3" Margin="8" FontSize="64" Name="btnO" Click="btnO_Clk">O</Button>
     </Grid>
 </Window>

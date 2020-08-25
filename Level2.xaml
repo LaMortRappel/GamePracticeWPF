@@ -1,0 +1,37 @@
+﻿<Window x:Class="GamePracticeWPF.Level2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GamePracticeWPF"
+        mc:Ignorable="d"
+        FontSize="24"
+        Title="Smart Heist - Level 2" Height="720" Width="640" ResizeMode="NoResize"  Loaded="Level2_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="3"
+                   Margin="8" Background="WhiteSmoke" TextAlignment="Center"
+                   Padding="4" Name="TBlock" TextWrapping="Wrap">
+            Hey there! Just chill, there's not much on this level, I just want to play <!--
+            --> the game called "cities". Rules are simple: I name city starting <!--
+            --> with a letter your city is ending with, and so on. Just type your <!--
+            --> first city to start.</TextBlock>
+        <RichTextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="8,48"
+                     PreviewKeyDown="RichTextBox_KeyDown" Name="InputBox"/>
+        <Button Grid.Row="3" Grid.Column="3" Margin="8,48" FontSize="30" Padding="0"
+                Click="Btn_Click" PreviewKeyDown="RichTextBox_KeyDown">→</Button>
+    </Grid>
+</Window>

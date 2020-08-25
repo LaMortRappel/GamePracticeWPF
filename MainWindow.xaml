@@ -7,9 +7,55 @@
         mc:Ignorable="d"
         Title="Smart Heist" Height="720" Width="640" ResizeMode="NoResize">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="16" FontSize="36">Welcome to Smart Heist</TextBlock>
-        <TextBlock HorizontalAlignment="Center" Margin="64" FontSize="27">You'll need to go through 6 puzzle
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"
+                   HorizontalAlignment="Center" VerticalAlignment="Top"
+                   FontSize="36">Welcome to Smart Heist</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Margin="0,32,0,0"
+                   FontSize="27">You'll need to go through 6 puzzle
             <LineBreak/>locks to win the game</TextBlock>
-        <Button Margin="128,160,128,128" Name="btnStart" Click="btnStart_Click" FontSize="72" Width="384" Height="256">Let's Go</Button>
+        <Button Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                Name="btnStart" Click="btnStart_Click"
+                Margin="8"
+                FontSize="72">Quick Start</Button>
+        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1"
+                Name="btn1" Click="btn1_Click"
+                Margin="8"
+                FontSize="72">1</Button>
+        <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1"
+                Name="btn2" Click="btn2_Click"
+                Margin="8"
+                FontSize="72">2</Button>
+        <Button Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1"
+                Name="btn3" Click="btn3_Click"
+                Margin="8"
+                FontSize="72">3</Button>
+        <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1"
+                Name="btn4" Click="btn4_Click"
+                Margin="8"
+                FontSize="72">4</Button>
+        <Button Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1"
+                Name="btn5" Click="btn5_Click"
+                Margin="8"
+                FontSize="72">5</Button>
+        <Button Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1"
+                Name="btn6" Click="btn6_Click"
+                Margin="8"
+                FontSize="72">6</Button>
     </Grid>
 </Window>

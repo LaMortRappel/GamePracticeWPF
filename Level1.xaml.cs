@@ -100,6 +100,10 @@ namespace GamePracticeWPF
             lblTimer.FontSize = 48;
             lblTimer.Foreground = Brushes.White;
             grid.Background = Brushes.Lime;
+            await Task.Delay(5000);
+            Window level2 = new Level2();
+            this.Close();
+            level2.Show();
         }
 
         public void EnableButtons(bool isEnabled)

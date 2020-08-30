@@ -1,0 +1,63 @@
+﻿<Window x:Class="GamePracticeWPF.Level3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GamePracticeWPF"
+        mc:Ignorable="d"
+        FontSize="16" HorizontalAlignment="Center" 
+        Title="Smart Heist - Level 3" Height="720" Width="640"
+        ResizeMode="NoResize"  Loaded="Level3_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="6"
+                   Margin="16" HorizontalAlignment="Center">
+            Just a simple Overton Window's guessing
+            <LineBreak/> Every politician have to do it</TextBlock>
+        <ComboBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6" Margin="24"
+                  Name="CB1" SelectionChanged="CB1_SelectionChanged">
+            <ComboBoxItem>Religious genocides</ComboBoxItem>
+            <ComboBoxItem>Gay marriages</ComboBoxItem>
+            <ComboBoxItem>Personal arms</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Margin="24">
+            <ComboBoxItem>are</ComboBoxItem>
+            <ComboBoxItem>mostly are</ComboBoxItem>
+            <ComboBoxItem>are not</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="6" Margin="24">
+            <ComboBoxItem>approved</ComboBoxItem>
+            <ComboBoxItem>normal</ComboBoxItem>
+            <ComboBoxItem>critisized</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="6" Margin="24">
+            <ComboBoxItem>all over</ComboBoxItem>
+            <ComboBoxItem>in some places of</ComboBoxItem>
+            <ComboBoxItem>outside of</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="6" Margin="24">
+            <ComboBoxItem>Wakanda</ComboBoxItem>
+            <ComboBoxItem>Gilead</ComboBoxItem>
+            <ComboBoxItem>Zubrowka</ComboBoxItem>
+        </ComboBox>
+    </Grid>
+</Window>

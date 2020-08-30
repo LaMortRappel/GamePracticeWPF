@@ -45,9 +45,9 @@ namespace GamePracticeWPF
         }
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
-            //Window level3 = new Level3();
+            Window level3 = new Level3();
             this.Close();
-            //level3.Show();
+            level3.Show();
         }
         private void btn4_Click(object sender, RoutedEventArgs e)
         {

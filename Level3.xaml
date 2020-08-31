@@ -30,31 +30,36 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="6"
-                   Margin="16" HorizontalAlignment="Center">
+                   Margin="16" HorizontalAlignment="Center"
+                   Name ="TBlock">
             Just a simple Overton Window's guessing
             <LineBreak/> Every politician have to do it</TextBlock>
         <ComboBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6" Margin="24"
-                  Name="CB1" SelectionChanged="CB1_SelectionChanged">
+                  Name="CB0"  SelectionChanged="SelectionChanged">
             <ComboBoxItem>Religious genocides</ComboBoxItem>
             <ComboBoxItem>Gay marriages</ComboBoxItem>
             <ComboBoxItem>Personal arms</ComboBoxItem>
         </ComboBox>
-        <ComboBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Margin="24">
+        <ComboBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Margin="24"
+                  Name="CB1" SelectionChanged="SelectionChanged">
             <ComboBoxItem>are</ComboBoxItem>
             <ComboBoxItem>mostly are</ComboBoxItem>
             <ComboBoxItem>are not</ComboBoxItem>
         </ComboBox>
-        <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="6" Margin="24">
+        <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="6" Margin="24"
+                  Name="CB2" SelectionChanged="SelectionChanged">
             <ComboBoxItem>approved</ComboBoxItem>
             <ComboBoxItem>normal</ComboBoxItem>
             <ComboBoxItem>critisized</ComboBoxItem>
         </ComboBox>
-        <ComboBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="6" Margin="24">
+        <ComboBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="6" Margin="24"
+                  Name="CB3" SelectionChanged="SelectionChanged">
             <ComboBoxItem>all over</ComboBoxItem>
             <ComboBoxItem>in some places of</ComboBoxItem>
             <ComboBoxItem>outside of</ComboBoxItem>
         </ComboBox>
-        <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="6" Margin="24">
+        <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="6" Margin="24"
+                  Name="CB4" SelectionChanged="SelectionChanged">
             <ComboBoxItem>Wakanda</ComboBoxItem>
             <ComboBoxItem>Gilead</ComboBoxItem>
             <ComboBoxItem>Zubrowka</ComboBoxItem>
